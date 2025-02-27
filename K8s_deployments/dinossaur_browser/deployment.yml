@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dino-game
+  namespace: mydino
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dino-game
+  template:
+    metadata:
+      labels:
+        app: dino-game
+    spec:
+      containers:
+        - name: dino-game
+          image: elleston/t-rex-challenge:latest
+          ports:
+            - containerPort: 80
